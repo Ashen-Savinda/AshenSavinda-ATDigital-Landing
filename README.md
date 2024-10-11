@@ -1,2 +1,2 @@
 # AshenSavinda-ATDigital-Landing
- The landing page task for the AT Digital internship
+ The landing page task for the AT Digital internship opprotunity
