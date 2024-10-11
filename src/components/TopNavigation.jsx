@@ -28,11 +28,20 @@ const TopNavigation = () => {
                             //trigger menu toggle on click
                             onClick={handleSelection}
                         >
-                            <svg width="31" height="25" viewBox="0 0 31 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect y="0.5" width="31" height="4" rx="2" fill="white" />
-                                <rect y="10.5" width="31" height="4" rx="2" fill="white" />
-                                <rect y="20.5" width="31" height="4" rx="2" fill="white" />
-                            </svg>
+                            {isSelected ? (
+                                //cross icon when the menu is open
+                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="2" y1="2" x2="29" y2="29" stroke="white" strokeWidth="4" />
+                                    <line x1="2" y1="29" x2="29" y2="2" stroke="white" strokeWidth="4" />
+                                </svg>
+                            ) : (
+                                //hamburger icon when the menu is closed
+                                <svg width="31" height="25" viewBox="0 0 31 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.5" width="31" height="4" rx="2" fill="white" />
+                                    <rect y="10.5" width="31" height="4" rx="2" fill="white" />
+                                    <rect y="20.5" width="31" height="4" rx="2" fill="white" />
+                                </svg>
+                            )}
                         </button>
                     </div>
 
@@ -46,11 +55,24 @@ const TopNavigation = () => {
                             }
                         >
                             <ul className="flex flex-col mt-4 text-sm md:flex-row md:space-x-8 md:mt-0">
+                                
+                                {/* conditionally render "Home" link in mobile menu only */}
+                                {isSelected && (
+                                    <li>
+                                        <a
+                                            href="#"
+                                            className="block py-2 pl-3 border-y pr-4 text-white md:border-0 md:p-0"
+                                        >
+                                            HOME
+                                        </a>
+                                    </li>
+                                )}
+
                                 {/* navigation list */}
                                 <li>
                                     <a
                                         href="#"
-                                        className="block py-2 pl-3 border-y pr-4 text-white md:border-0 md:p-0"
+                                        className="block py-2 pl-3 border-b pr-4 text-white md:border-0 md:p-0"
                                         aria-current="page"
                                     >
                                         SERVICES
